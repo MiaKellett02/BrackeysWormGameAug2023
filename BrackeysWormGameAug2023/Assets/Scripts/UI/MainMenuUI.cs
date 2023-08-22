@@ -1,0 +1,32 @@
+///////////////////////////////////////////////////////////////////
+/// Filename: MainMenuUI.cs
+/// Author: Mia Kellett
+/// Date Created: 22/08/2023
+/// Brief: To control navigation to and from the main menu.
+///////////////////////////////////////////////////////////////////
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class MainMenuUI : MonoBehaviour {
+	//Variables to assign via the unity inspector.
+	[SerializeField] private Button m_playButton;
+	[SerializeField] private Button m_optionsButton;
+	[SerializeField] private Button m_quitButton;
+
+	//Unity Functions.
+	private void Awake() {
+		m_playButton.onClick.AddListener(() => {
+			Loader.Load(Loader.Scene.GameScene);
+		});
+
+		m_optionsButton.onClick.AddListener(() => {
+			Debug.Log("Options Button Pressed On Main Menu");
+		});
+
+		m_quitButton.onClick.AddListener(() => {
+			Application.Quit();
+		});
+	}
+}
