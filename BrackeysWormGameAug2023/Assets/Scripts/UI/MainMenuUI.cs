@@ -18,6 +18,7 @@ public class MainMenuUI : MonoBehaviour {
 	//Unity Functions.
 	private void Awake() {
 		m_playButton.onClick.AddListener(() => {
+			Debug.Log("Play Button Pressed On Main Menu");
 			Loader.Load(Loader.Scene.GameScene);
 		});
 
@@ -26,6 +27,7 @@ public class MainMenuUI : MonoBehaviour {
 		});
 
 		m_quitButton.onClick.AddListener(() => {
+			Debug.Log("Quit Game Button Pressed On Main Menu");
 			Application.Quit();
 		});
 	}
