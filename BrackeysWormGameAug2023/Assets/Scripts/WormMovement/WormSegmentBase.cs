@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////////////////////////
+/// Filename: WormSegmentBase.cs
+/// Author: Mia Kellett
+/// Date Created: 22/08/2023
+/// Purpose: To ensure each worm segment follows the one infront of it.
+///////////////////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
