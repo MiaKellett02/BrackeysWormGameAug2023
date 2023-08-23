@@ -36,7 +36,7 @@ public class EntityLevelTracker : MonoBehaviour {
 		return m_levelTrackingData.m_currentXP;
 	}
 
-	public int GetXPToLevelUp() {
+	public int GetRequiredXPToLevelUp() {
 		return m_levelTrackingData.m_xpRequiredToLevelUp;
 	}
 
@@ -64,6 +64,7 @@ public class EntityLevelTracker : MonoBehaviour {
 		if(m_levelTrackingData.m_currentXP >= m_levelTrackingData.m_xpRequiredToLevelUp) {
 			UpdateLevelTrackingDataAfterLevelUp();
 			onEntityLevelUp?.Invoke(this, EventArgs.Empty);
+			Debug.Log(m_levelTrackingData.ToString());
 		}
 	}
 
@@ -83,5 +84,9 @@ public class EntityLevelTracker : MonoBehaviour {
 		public int m_currentXP;
 		public int m_xpRequiredToLevelUp;
 		public int m_currentLevel;
+
+		public override string ToString() {
+			return "Current XP: " + m_currentXP + ", XP Required To Level Up: " + m_xpRequiredToLevelUp + ", Current Level: " + m_currentLevel;
+		}
 	}
 }
