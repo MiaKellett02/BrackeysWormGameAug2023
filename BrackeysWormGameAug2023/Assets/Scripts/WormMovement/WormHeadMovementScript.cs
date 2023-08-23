@@ -5,6 +5,7 @@ using UnityEngine;
 public class WormHeadMovementScript : WormSegmentBase {
 	//Variables To Assign via the unity inspector.
 	[SerializeField][Range(0.0f, 1.0f)] private float m_movementOverTime = 0.5f;
+	[SerializeField] private float m_minDistanceFromParent = 0.5f;
 	[SerializeField] private float m_movementSpeed = 3.5f;
 	[SerializeField] private float m_rotationSensitivity = 50.0f;
 
@@ -47,5 +48,6 @@ public class WormHeadMovementScript : WormSegmentBase {
 	//Utility.
 	private void OnValidate() {
 		WormSegmentBase.SetMovementOverTime(m_movementOverTime);
+		WormSegmentBase.SetMinDistanceFromParent(m_minDistanceFromParent);
 	}
 }
