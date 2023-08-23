@@ -72,7 +72,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - _Color: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 0.6313726}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.43137255}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _Inner_Colour: {r: 1, g: 1, b: 1, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

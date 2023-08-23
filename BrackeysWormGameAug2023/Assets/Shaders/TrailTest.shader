@@ -1,8 +1,9 @@
-Shader "Shader Graphs/Trail Test"
+Shader "Shader Graphs/Trail"
 {
     Properties
     {
-        _Color("Color", Color) = (0, 0, 0, 0)
+        _Color("Color", Color) = (1, 1, 1, 0.5686275)
+        _Inner_Colour("Inner Colour", Color) = (1, 1, 1, 0)
         [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
@@ -31,15 +32,15 @@ Shader "Shader Graphs/Trail Test"
         Cull Off
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
-        
-          Stencil
+
+        Stencil
           {
               Ref 1
               WriteMask 255
               Comp Greater
               Pass Replace
           }
-
+        
         // Debug
         // <None>
         
@@ -203,10 +204,12 @@ Shader "Shader Graphs/Trail Test"
         // Graph Properties
         CBUFFER_START(UnityPerMaterial)
         float4 _Color;
+        float4 _Inner_Colour;
         CBUFFER_END
         
         
         // Object and Global properties
+        float _Scale;
         
         // Graph Includes
         // GraphIncludes: <None>
@@ -337,16 +340,20 @@ Shader "Shader Graphs/Trail Test"
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
         {
             SurfaceDescription surface = (SurfaceDescription)0;
-            float4 Color_6b11a2ae28184a2d91950991225e4742 = IsGammaSpace() ? float4(1, 1, 1, 1) : float4(SRGBToLinear(float3(1, 1, 1)), 1);
-            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.4;
+            float4 _Property_37ecdff3237b4463b43b777d879fdef5_Out_0_Vector4 = _Color;
+            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.5;
             float _Float_baf1d56986154109b4e0906478bb4962_Out_0_Float = _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float;
             float4 _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4 = IN.uv0;
             float2 _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2;
             Unity_TilingAndOffset_float((_UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4.xy), float2 (1, 1), float2 (-0.5, -0.5), _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2);
             float Integer_2310c7ecfa5f4e949455f1dbd1032214 = 16;
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_R_1_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[0];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_G_2_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[1];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[2];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_A_4_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[3];
             Bindings_PixelateUV_87882df7c5a71384496e6b5d0d318257_float _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94;
             float3 _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3;
-            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, 1, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
+            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
             float _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float;
             Unity_Distance_float3(_PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3, float3(0, 0, 0), _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float);
             float _Step_24738dcb44d44610b2c8b952b3c15453_Out_2_Float;
@@ -356,7 +363,7 @@ Shader "Shader Graphs/Trail Test"
             float _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float;
             Unity_Saturate_float(_OneMinus_452b2fd31af84ca78e92f108d8513899_Out_1_Float, _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float);
             float4 _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4;
-            Unity_Multiply_float4_float4(Color_6b11a2ae28184a2d91950991225e4742, (_Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float.xxxx), _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4);
+            Unity_Multiply_float4_float4(_Property_37ecdff3237b4463b43b777d879fdef5_Out_0_Vector4, (_Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float.xxxx), _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4);
             surface.BaseColor = (_Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4.xyz);
             surface.Alpha = _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float;
             return surface;
@@ -595,10 +602,12 @@ Shader "Shader Graphs/Trail Test"
         // Graph Properties
         CBUFFER_START(UnityPerMaterial)
         float4 _Color;
+        float4 _Inner_Colour;
         CBUFFER_END
         
         
         // Object and Global properties
+        float _Scale;
         
         // Graph Includes
         // GraphIncludes: <None>
@@ -723,15 +732,19 @@ Shader "Shader Graphs/Trail Test"
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
         {
             SurfaceDescription surface = (SurfaceDescription)0;
-            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.4;
+            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.5;
             float _Float_baf1d56986154109b4e0906478bb4962_Out_0_Float = _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float;
             float4 _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4 = IN.uv0;
             float2 _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2;
             Unity_TilingAndOffset_float((_UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4.xy), float2 (1, 1), float2 (-0.5, -0.5), _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2);
             float Integer_2310c7ecfa5f4e949455f1dbd1032214 = 16;
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_R_1_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[0];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_G_2_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[1];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[2];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_A_4_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[3];
             Bindings_PixelateUV_87882df7c5a71384496e6b5d0d318257_float _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94;
             float3 _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3;
-            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, 1, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
+            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
             float _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float;
             Unity_Distance_float3(_PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3, float3(0, 0, 0), _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float);
             float _Step_24738dcb44d44610b2c8b952b3c15453_Out_2_Float;
@@ -977,10 +990,12 @@ Shader "Shader Graphs/Trail Test"
         // Graph Properties
         CBUFFER_START(UnityPerMaterial)
         float4 _Color;
+        float4 _Inner_Colour;
         CBUFFER_END
         
         
         // Object and Global properties
+        float _Scale;
         
         // Graph Includes
         // GraphIncludes: <None>
@@ -1105,15 +1120,19 @@ Shader "Shader Graphs/Trail Test"
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
         {
             SurfaceDescription surface = (SurfaceDescription)0;
-            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.4;
+            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.5;
             float _Float_baf1d56986154109b4e0906478bb4962_Out_0_Float = _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float;
             float4 _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4 = IN.uv0;
             float2 _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2;
             Unity_TilingAndOffset_float((_UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4.xy), float2 (1, 1), float2 (-0.5, -0.5), _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2);
             float Integer_2310c7ecfa5f4e949455f1dbd1032214 = 16;
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_R_1_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[0];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_G_2_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[1];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[2];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_A_4_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[3];
             Bindings_PixelateUV_87882df7c5a71384496e6b5d0d318257_float _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94;
             float3 _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3;
-            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, 1, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
+            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
             float _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float;
             Unity_Distance_float3(_PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3, float3(0, 0, 0), _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float);
             float _Step_24738dcb44d44610b2c8b952b3c15453_Out_2_Float;
@@ -1372,10 +1391,12 @@ Shader "Shader Graphs/Trail Test"
         // Graph Properties
         CBUFFER_START(UnityPerMaterial)
         float4 _Color;
+        float4 _Inner_Colour;
         CBUFFER_END
         
         
         // Object and Global properties
+        float _Scale;
         
         // Graph Includes
         // GraphIncludes: <None>
@@ -1506,16 +1527,20 @@ Shader "Shader Graphs/Trail Test"
         SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
         {
             SurfaceDescription surface = (SurfaceDescription)0;
-            float4 Color_6b11a2ae28184a2d91950991225e4742 = IsGammaSpace() ? float4(1, 1, 1, 1) : float4(SRGBToLinear(float3(1, 1, 1)), 1);
-            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.4;
+            float4 _Property_37ecdff3237b4463b43b777d879fdef5_Out_0_Vector4 = _Color;
+            float _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float = 0.5;
             float _Float_baf1d56986154109b4e0906478bb4962_Out_0_Float = _Float_faf9ea62950e4c60a0db5a53af081ecf_Out_0_Float;
             float4 _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4 = IN.uv0;
             float2 _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2;
             Unity_TilingAndOffset_float((_UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4.xy), float2 (1, 1), float2 (-0.5, -0.5), _TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2);
             float Integer_2310c7ecfa5f4e949455f1dbd1032214 = 16;
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_R_1_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[0];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_G_2_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[1];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[2];
+            float _Split_61e7eac4c3714f57a216f1ee865afdbf_A_4_Float = _UV_9698acade7d04534b6f1640b229d063d_Out_0_Vector4[3];
             Bindings_PixelateUV_87882df7c5a71384496e6b5d0d318257_float _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94;
             float3 _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3;
-            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, 1, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
+            SG_PixelateUV_87882df7c5a71384496e6b5d0d318257_float((float3(_TilingAndOffset_db390ca9a6e04ff1a499b9fd4aa08a72_Out_3_Vector2, 0.0)), Integer_2310c7ecfa5f4e949455f1dbd1032214, _Split_61e7eac4c3714f57a216f1ee865afdbf_B_3_Float, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94, _PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3);
             float _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float;
             Unity_Distance_float3(_PixelateUV_e744c4b8f6c245868e1adf61b89b7c94_UVOut_0_Vector3, float3(0, 0, 0), _Distance_1d918cbfa92a4a01869e1ebd59046910_Out_2_Float);
             float _Step_24738dcb44d44610b2c8b952b3c15453_Out_2_Float;
@@ -1525,7 +1550,7 @@ Shader "Shader Graphs/Trail Test"
             float _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float;
             Unity_Saturate_float(_OneMinus_452b2fd31af84ca78e92f108d8513899_Out_1_Float, _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float);
             float4 _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4;
-            Unity_Multiply_float4_float4(Color_6b11a2ae28184a2d91950991225e4742, (_Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float.xxxx), _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4);
+            Unity_Multiply_float4_float4(_Property_37ecdff3237b4463b43b777d879fdef5_Out_0_Vector4, (_Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float.xxxx), _Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4);
             surface.BaseColor = (_Multiply_d76e3c8e27a34169b6f1aa7f247f3e4f_Out_2_Vector4.xyz);
             surface.Alpha = _Saturate_d6c1848d58374873b1c7ceae0e3946b1_Out_1_Float;
             return surface;
