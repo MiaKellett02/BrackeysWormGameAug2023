@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Terrain
+    uniqueID: 21629029
+    locked: 0
+  - name: Particle
+    uniqueID: 1843865471
+    locked: 0
+  - name: Worm
+    uniqueID: 667018283
+    locked: 0

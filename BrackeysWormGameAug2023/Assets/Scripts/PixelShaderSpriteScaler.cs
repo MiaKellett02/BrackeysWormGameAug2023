@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class WormSegmentSpriteScaler : MonoBehaviour
+public class PixelShaderSpriteScaler : MonoBehaviour
 {
     private MaterialPropertyBlock m_propertyBlock;
 
@@ -18,7 +18,7 @@ public class WormSegmentSpriteScaler : MonoBehaviour
 
         if (m_currentScale != transform.transform.localScale.x) {
             m_propertyBlock = new MaterialPropertyBlock();
-            m_propertyBlock.SetFloat("_Scale", transform.localScale.x);
+            m_propertyBlock.SetFloat("_Scale", transform.localScale.y);
             GetComponent<Renderer>().SetPropertyBlock(m_propertyBlock);
 
             m_currentScale = transform.localScale.x;
