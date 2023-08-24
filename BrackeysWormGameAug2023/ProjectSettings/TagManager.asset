@@ -53,3 +53,9 @@ TagManager:
   - name: Worm
     uniqueID: 667018283
     locked: 0
+  - name: Food
+    uniqueID: 2955141299
+    locked: 0
+  - name: Enemies
+    uniqueID: 723029491
+    locked: 0

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stone
+  m_Name: Magma
   m_Shader: {fileID: -6465566751694194690, guid: 657eea877f97ce443bd66b31187a04df, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -75,14 +75,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _Noise_Scale: -8.77
+    - _Noise_Scale: -4.14
     - _Scale: 0
-    - _Wave: 2.281
+    - _Wave: 2.203
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Layer_Colour: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
+    - _Layer_Colour: {r: 0.40929386, g: 0.072267726, b: 0.5283019, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Scale: {r: 0, g: 0, b: 0, a: 0}
-    - _Secondary_Colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0}
+    - _Secondary_Colour: {r: 0.48434263, g: 0.14117648, b: 0.69803923, a: 0}
   m_BuildTextureStacks: []
