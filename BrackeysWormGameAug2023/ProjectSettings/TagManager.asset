@@ -47,6 +47,9 @@ TagManager:
   - name: Particle
     uniqueID: 1843865471
     locked: 0
+  - name: Food
+    uniqueID: 2939108411
+    locked: 0
   - name: Worm
     uniqueID: 667018283
     locked: 0
