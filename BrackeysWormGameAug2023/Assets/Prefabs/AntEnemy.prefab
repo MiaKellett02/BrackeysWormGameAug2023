@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3165314135901568832}
   - component: {fileID: 6450029713782623515}
+  - component: {fileID: 8299580058481885693}
+  - component: {fileID: 9120712899561161072}
   m_Layer: 0
   m_Name: AntEnemy
   m_TagString: Untagged
@@ -48,6 +50,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_movementSpeed: 3.5
   m_rotationSensitivity: 50
+--- !u!114 &8299580058481885693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180622233833925150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c155aefc9dee0429f6a8f6d1a34014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_entityDeathHandlerScript: {fileID: 9120712899561161072}
+  <m_maxHealth>k__BackingField: 10
+--- !u!114 &9120712899561161072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180622233833925150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d876b9e5f0ae73345aea9d644a0786ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &57140305819883188
 PrefabInstance:
   m_ObjectHideFlags: 0
