@@ -521,6 +521,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: WormHead
       objectReference: {fileID: 0}
+    - target: {fileID: 4054210548949318265, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054210548949318265, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054210548949318265, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054210548949318265, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5276029004579106696, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777316559872139340, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777316559872139340, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777316559872139340, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
