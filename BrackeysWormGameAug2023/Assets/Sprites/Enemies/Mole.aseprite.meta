@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c4592b34ccb5e8438839740b9b57556
+guid: 71eab4e6e0b397944a752f2c3395a4aa
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,11 +71,11 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -83,11 +83,11 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638284867874180995
+  platformSettingsDirtyTick: 638286012873167084
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: YellowAmeoba
+  - name: Mole_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.071428575}
+    pivot: {x: 0.5, y: 0.49999997}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 14
-      height: 14
-    spriteID: c9f5a14c78d963a4687cb61f59157ee7
+      width: 82
+      height: 92
+    spriteID: 27e2d4bb2925aa245a38b554ced51222
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: YellowAmeoba_Frame_1
+  - name: Mole_Frame_1
     originalName: 
-    pivot: {x: 0.45454547, y: -0.3}
+    pivot: {x: 0.5, y: 0.49999997}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 26
-      width: 11
-      height: 10
-    spriteID: 085ec1295cff242499fb511d16b30b47
+      y: 104
+      width: 82
+      height: 92
+    spriteID: 0d5b39ce8e6f5fa448d13f35d87f132e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,19 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 26}
-  - name: YellowAmeoba_Frame_2
+    uvTransform: {x: 4, y: 104}
+  - name: Mole_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.625}
+    pivot: {x: 0.47560975, y: 0.49999997}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 44
-      width: 8
-      height: 8
-    spriteID: 4c8581f86caaba64ca588589f6ce2afb
+      y: 204
+      width: 82
+      height: 92
+    spriteID: 95665815bcd0fd44397b4ee2c290c7f1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,20 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 44}
-  spriteSheetImportData:
-  - name: YellowAmeoba_0
+    uvTransform: {x: 4, y: 204}
+  - name: Mole_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.4683544, y: 0.49999997}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 44
-      width: 8
-      height: 8
-    spriteID: 743337de320cfed459fcbf4243b64258
+      x: 94
+      y: 204
+      width: 79
+      height: 92
+    spriteID: eabc3b41813208f4e983df6247c2c056
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,19 +198,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: YellowAmeoba_1
+    uvTransform: {x: 94, y: 204}
+  - name: Mole_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.47560975, y: 0.49999997}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 26
-      width: 11
-      height: 10
-    spriteID: 52a0834e8780a574a9160308598fd74c
+      y: 304
+      width: 82
+      height: 92
+    spriteID: 62d22a57fcef582449e838506efbe8fd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,19 +218,39 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: YellowAmeoba_2
+    uvTransform: {x: 4, y: 304}
+  - name: Mole_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.49999997}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
+      y: 404
+      width: 82
+      height: 92
+    spriteID: 62a4a03bdab951a43b7403a91e146a2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 404}
+  - name: Mole_Frame_6
+    originalName: 
+    pivot: {x: 0.5121951, y: 0.49999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
       y: 4
-      width: 14
-      height: 14
-    spriteID: b7369011df57c2145ae62d8ecac6153d
+      width: 82
+      height: 92
+    spriteID: 9eef3bb1c24af7c46a523bd9f22008cf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -239,39 +258,128 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 94, y: 4}
+  - name: Mole_Frame_7
+    originalName: 
+    pivot: {x: 0.53164554, y: 0.49999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 304
+      width: 79
+      height: 92
+    spriteID: 9c641658d2f0ba7469cb18226adc1337
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 94, y: 304}
+  - name: Mole_Frame_8
+    originalName: 
+    pivot: {x: 0.5121951, y: 0.49999997}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 94
+      y: 104
+      width: 82
+      height: 92
+    spriteID: b8db71ad35eb2fe49891bb750ab87d62
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 94, y: 104}
+  spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1583862301
-    name: YellowAmeoba
+    guid: -1185066877
+    name: Mole
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: YellowAmeoba_Frame_0
+    - name: Mole_Frame_0
       frameIndex: 0
       cellRect:
-        x: 1
-        y: 1
-        width: 14
-        height: 14
-      spriteId: c9f5a14c78d963a4687cb61f59157ee7
-    - name: YellowAmeoba_Frame_1
+        x: 7
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 27e2d4bb2925aa245a38b554ced51222
+    - name: Mole_Frame_1
       frameIndex: 1
       cellRect:
-        x: 3
-        y: 3
-        width: 11
-        height: 10
-      spriteId: 085ec1295cff242499fb511d16b30b47
-    - name: YellowAmeoba_Frame_2
+        x: 7
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 0d5b39ce8e6f5fa448d13f35d87f132e
+    - name: Mole_Frame_2
       frameIndex: 2
       cellRect:
-        x: 4
-        y: 5
-        width: 8
-        height: 8
-      spriteId: 4c8581f86caaba64ca588589f6ce2afb
+        x: 9
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 95665815bcd0fd44397b4ee2c290c7f1
+    - name: Mole_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 11
+        y: 2
+        width: 79
+        height: 92
+      spriteId: eabc3b41813208f4e983df6247c2c056
+    - name: Mole_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 62d22a57fcef582449e838506efbe8fd
+    - name: Mole_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 7
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 62a4a03bdab951a43b7403a91e146a2f
+    - name: Mole_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 6
+        y: 2
+        width: 82
+        height: 92
+      spriteId: 9eef3bb1c24af7c46a523bd9f22008cf
+    - name: Mole_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 6
+        y: 2
+        width: 79
+        height: 92
+      spriteId: 9c641658d2f0ba7469cb18226adc1337
+    - name: Mole_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 6
+        y: 2
+        width: 82
+        height: 92
+      spriteId: b8db71ad35eb2fe49891bb750ab87d62
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -325,4 +433,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
+  canvasSize: {x: 96, y: 96}
