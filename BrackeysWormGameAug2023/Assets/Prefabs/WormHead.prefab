@@ -149,7 +149,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 5000
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -320,7 +320,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.25
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -637,7 +637,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4876,6 +4876,10 @@ GameObject:
   - component: {fileID: 6520228759878942472}
   - component: {fileID: 6346078180259461128}
   - component: {fileID: 6770622715453495093}
+  - component: {fileID: 7182302763252013468}
+  - component: {fileID: 3353478990000786409}
+  - component: {fileID: 7461816830617783441}
+  - component: {fileID: 2028895418527037771}
   m_Layer: 0
   m_Name: WormHead
   m_TagString: Untagged
@@ -5029,7 +5033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_maxLevel: 50
-  m_baseXPToLevelUp: 100
+  m_baseXPToLevelUp: 50
   m_levelUpCurve:
     serializedVersion: 2
     m_Curve:
@@ -5066,6 +5070,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4beb4a87399c44297cea3508104ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7182302763252013468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901405419929454465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d70bccd85e1c54f9e861b4ed849d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3353478990000786409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901405419929454465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fefc1508594784f80e5bd141896d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_foodPrefab: {fileID: 1936380958247384431, guid: 517d3954bacd62e499f490572dab6bf1, type: 3}
+  m_foodToDropCount: 2
+  m_dropRadius: 0.5
+--- !u!114 &7461816830617783441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901405419929454465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c155aefc9dee0429f6a8f6d1a34014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_entityDeathHandlerScript: {fileID: 7182302763252013468}
+  <m_maxHealth>k__BackingField: 10
+--- !u!114 &2028895418527037771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901405419929454465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fefc1508594784f80e5bd141896d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_foodPrefab: {fileID: 1936380958247384431, guid: 517d3954bacd62e499f490572dab6bf1, type: 3}
+  m_foodToDropCount: 2
+  m_dropRadius: 0.5
 --- !u!1 &6647354927151317768
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,6 +5218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4905323118269724935}
     m_Modifications:
+    - target: {fileID: 3033458436488029627, guid: 784de668636a72c479f433f71843cdeb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4260633654629959620, guid: 784de668636a72c479f433f71843cdeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5197,6 +5261,22 @@ PrefabInstance:
     - target: {fileID: 4260633654629959620, guid: 784de668636a72c479f433f71843cdeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584905933130592330, guid: 784de668636a72c479f433f71843cdeb, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584905933130592330, guid: 784de668636a72c479f433f71843cdeb, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584905933130592330, guid: 784de668636a72c479f433f71843cdeb, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584905933130592330, guid: 784de668636a72c479f433f71843cdeb, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.6862745
       objectReference: {fileID: 0}
     - target: {fileID: 8825616534333022841, guid: 784de668636a72c479f433f71843cdeb, type: 3}
       propertyPath: m_Name

@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour {
 		SetupMovementScript();
 	}
 
+	private void OnDestroy() {
+		PlayerInput.Instance.WKeyHeldDown -= PlayerInput_WKeyHeldDown;
+		PlayerInput.Instance.AKeyHeldDown -= PlayerInput_AKeyHeldDown;
+		PlayerInput.Instance.DKeyHeldDown -= PlayerInput_DKeyHeldDown;
+	}
+
 	//Private Functions.
 	private void PlayerInput_DKeyHeldDown(object sender, System.EventArgs e) {
 		m_canMove.TurnRight();

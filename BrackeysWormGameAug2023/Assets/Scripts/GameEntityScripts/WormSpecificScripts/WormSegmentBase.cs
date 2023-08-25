@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(WormSegmentDestructionHandler))]
 public class WormSegmentBase : MonoBehaviour {
 	//static.
 	private static float s_movementOverTime = 0.5f;
@@ -49,6 +50,10 @@ public class WormSegmentBase : MonoBehaviour {
 		if (m_childSegment != null) {
 			m_childSegment.MakeChildFollowThisParent(this);
 		}
+	}
+
+	public WormSegmentBase GetChild() {
+		return m_childSegment;
 	}
 
 	//Private Functions.
