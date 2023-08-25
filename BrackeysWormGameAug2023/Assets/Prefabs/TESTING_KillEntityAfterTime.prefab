@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &446597904919335050
+--- !u!1 &5222222733030715907
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5544713923134017989}
-  - component: {fileID: 730191515680000606}
+  - component: {fileID: 2957714883940418065}
+  - component: {fileID: 3216078325467439695}
   m_Layer: 0
-  m_Name: GameFoodSpawner
+  m_Name: TESTING_KillEntityAfterTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5544713923134017989
+--- !u!4 &2957714883940418065
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446597904919335050}
+  m_GameObject: {fileID: 5222222733030715907}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,16 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &730191515680000606
+--- !u!114 &3216078325467439695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446597904919335050}
+  m_GameObject: {fileID: 5222222733030715907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103f6b6ad7246f248aacb84572489529, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcf053e27d0db744affa07615e45c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_foodPrefab: {fileID: 1936380958247384431, guid: 517d3954bacd62e499f490572dab6bf1, type: 3}
+  m_timeTillDestruction: 3
+  m_entityToKill: {fileID: 0}

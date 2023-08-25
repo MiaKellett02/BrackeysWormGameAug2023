@@ -9,9 +9,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AntDestructionHandler : MonoBehaviour, IDestructionHandler {
+	//Variables to assign via the unity inspector.
+	[SerializeField] private int m_foodToDropCount = 2;
+	[SerializeField] private float m_dropRadius = 0.5f;
+
+	//Public Functions.
 	public void HandleObjectDestruction() {
-		//FOR NOT JUST DESTROY IT.
-		//TODO:: HANDLE DEATH ANIMATIONS AND SOUNDS
+		//Spawn the food for the ants death.
+		SpawnFood();
+
+		//Destroy the ant one this has been done.
 		Destroy(this.gameObject);
+	}
+
+	//Private Functions.
+	private void SpawnFood() {
+		for (int i = 0; i < m_foodToDropCount; i++) {
+			Transform newFood = GameFoodSpawner.Instance.SpawnFood(this.transform.position, this.transform.parent.localScale, m_dropRadius);
+		}
 	}
 }

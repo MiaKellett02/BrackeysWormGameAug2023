@@ -11,7 +11,7 @@ using UnityEngine;
 public class GameOverUI : MonoBehaviour {
 	//Unity Functions.
 	private void Start() {
-		PlayerDeathBroadcaster.OnPlayerDeath += PlayerDeathBroadcaster_OnPlayerDeath;//SUBSCRIBING TO THE EVENT MANUALLY HERE IS ONLY TEMPORARY.
+		WormGameManager.Instance.OnGameOver += WormGameManager_OnGameOver;
 		Hide();
 	}
 
@@ -23,7 +23,7 @@ public class GameOverUI : MonoBehaviour {
 	private void Hide() {
 		this.gameObject.SetActive(false);
 	}
-	private void PlayerDeathBroadcaster_OnPlayerDeath(object sender, System.EventArgs e) {
+	private void WormGameManager_OnGameOver(object sender, System.EventArgs e) {
 		Show();
 	}
 
