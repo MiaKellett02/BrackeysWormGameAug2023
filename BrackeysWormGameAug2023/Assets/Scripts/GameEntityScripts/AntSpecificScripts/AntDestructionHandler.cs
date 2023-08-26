@@ -25,7 +25,8 @@ public class AntDestructionHandler : MonoBehaviour, IDestructionHandler {
 	//Private Functions.
 	private void SpawnFood() {
 		for (int i = 0; i < m_foodToDropCount; i++) {
-			Transform newFood = GameFoodSpawner.Instance.SpawnFood(this.transform.position, this.transform.parent.localScale, m_dropRadius);
+			Vector3 scaleToUse = this.transform.localScale;
+			Transform newFood = GameFoodSpawner.Instance.SpawnFood(this.transform.position, scaleToUse, m_dropRadius);
 		}
 	}
 }

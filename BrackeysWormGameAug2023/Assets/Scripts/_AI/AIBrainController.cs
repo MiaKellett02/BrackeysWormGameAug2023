@@ -17,14 +17,20 @@ public class AIBrainController : MonoBehaviour {
 	[Header("Wander State Variables.")]
 	[Header("Aggro State Variables.")]
 	[SerializeField] private AIAggroTrigger m_aiAggroTrigger;
+	[Header("Attack State Variables.")]
+	[SerializeField] private bool m_useAttackState = false;
+	[SerializeField] private AIAttackTrigger m_aiAttackTrigger;
+	[SerializeField] private Transform m_attackPrefab;
 
 	//Private Variables.
 	private ICanMove m_canMove = null;
 	private bool isAggroed = false;
+	private bool isAttacking = false;
 
 	//AI States.
 	private WanderState m_wanderState;
 	private AggroState m_aggroState;
+	private AttackState m_attackState;
 	private IAIState m_currentState;
 
 	//Public Functions.
@@ -34,11 +40,16 @@ public class AIBrainController : MonoBehaviour {
 		SetupMovementScript();
 		m_wanderState = new WanderState(m_canMove, m_AiHeadTransform, 5.0f, this.transform.position + Vector3.one * 5.0f);
 		m_aggroState = new AggroState(m_canMove, m_AiHeadTransform);
+		m_attackState = new AttackState();
 		SwitchState(m_wanderState);
 
 		//Subscribe to all the trigger events.
 		m_aiAggroTrigger.OnAiAggro += AiAggroTrigger_OnAiAggro;
 		m_aiAggroTrigger.OnAiStopAggro += AiAggroTrigger_OnAiStopAggro;
+		if (m_useAttackState) {
+			m_aiAttackTrigger.OnAiAttackTriggered += AiAttackTrigger_OnAiAttackTriggered;
+			m_aiAttackTrigger.OnAiAttackStopped += AiAttackTrigger_OnAiAttackStopped;
+		}
 	}
 
 	private void Update() {
@@ -54,9 +65,6 @@ public class AIBrainController : MonoBehaviour {
 	}
 
 	//Private Functions.
-	private void ValidateState() {
-
-	}
 
 	private void SwitchState(IAIState a_newState) {
 		if (m_currentState != null) {
@@ -82,6 +90,23 @@ public class AIBrainController : MonoBehaviour {
 			m_aggroState.SetTargetTransform(e.creatureThatCausedAggro);
 			SwitchState(m_aggroState);
 			Debug.Log("AI was aggroed by " + e.factionOfCreature.ToString() + " " + e.creatureThatCausedAggro.gameObject.name);
+		}
+	}
+
+
+	private void AiAttackTrigger_OnAiAttackStopped(object sender, AIAttackTrigger.OnAiAttackTriggeredEventArgs e) {
+		SwitchState(m_aggroState);
+		isAttacking = false;
+	}
+
+	private void AiAttackTrigger_OnAiAttackTriggered(object sender, AIAttackTrigger.OnAiAttackTriggeredEventArgs e) {
+		//Check if it's a valid enemy.
+		if (e.factionOfCreature != m_thisAiFactionIdentifier.GetEntityFaction() && !isAttacking) {
+			//It's a valid enemy so switch to aggro state.
+			isAttacking = true;
+			m_aggroState.SetTargetTransform(e.creatureThatTriggeredAttack);
+			SwitchState(m_aggroState);
+			Debug.Log("AI is going to attack " + e.factionOfCreature.ToString() + " " + e.creatureThatTriggeredAttack.gameObject.name);
 		}
 	}
 
