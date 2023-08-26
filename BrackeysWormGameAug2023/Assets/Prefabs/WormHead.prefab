@@ -4975,7 +4975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_childSegment: {fileID: 0}
   m_movementOverTime: 0.214
-  m_minDistanceFromParent: 0.2366667
+  m_minDistanceFromParent: 0.01
   m_movementSpeed: 3.5
   m_rotationSensitivity: 93.7
 --- !u!114 &3698962810940207930

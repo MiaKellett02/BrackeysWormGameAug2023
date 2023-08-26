@@ -19,7 +19,8 @@ public class WormHeadMovementScript : WormSegmentBase, ICanMove {
 	}
 
 	private void Start() {
-
+		WormSegmentBase.SetMovementOverTime(m_movementOverTime);
+		WormSegmentBase.SetMinDistanceFromParent(m_minDistanceFromParent);
 	}
 
 	private void FixedUpdate() {

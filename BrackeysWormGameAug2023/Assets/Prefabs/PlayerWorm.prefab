@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2179149923019693083, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
+      propertyPath: m_minDistanceFromParent
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3901405419929454465, guid: d07a2ea5473feb04bb9166a8ddb0925d, type: 3}
       propertyPath: m_Name
       value: WormHead
