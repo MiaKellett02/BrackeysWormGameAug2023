@@ -56,6 +56,10 @@ public class WormSegmentBase : MonoBehaviour {
 		return m_childSegment;
 	}
 
+	public void SetChild(WormSegmentBase a_newChild) {
+		m_childSegment = a_newChild;
+	}
+
 	//Private Functions.
 	protected static void SetMovementOverTime(float a_movementOverTime) {
 		s_movementOverTime = Mathf.Clamp01(a_movementOverTime);

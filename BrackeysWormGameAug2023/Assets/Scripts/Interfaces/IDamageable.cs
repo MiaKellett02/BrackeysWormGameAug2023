@@ -14,5 +14,7 @@ public interface IDamageable {
 
 	public void HealEntity(float a_amountToHeal);
 
+	public void HealToMax();
+
 	public void IncreaseMaxHealth(float a_amountToIncreaseBy);
 }

@@ -70,6 +70,12 @@ public class EntityHealth : MonoBehaviour, IDamageable {
 		return Mathf.Clamp01((m_currentHealth / m_maxHealth));
 	}
 
+	public void HealToMax() {
+		m_currentHealth = m_maxHealth;
+		//Broadcast the heal entity event.
+		OnEntityHealed?.Invoke(this, EventArgs.Empty);
+	}
+
 	//Unity Functions.
 	private void Awake() {
 		m_currentHealth = m_maxHealth;

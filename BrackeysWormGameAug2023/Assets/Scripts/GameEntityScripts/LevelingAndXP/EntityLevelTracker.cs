@@ -11,7 +11,7 @@ using UnityEngine;
 
 public class EntityLevelTracker : MonoBehaviour {
 	//Events.
-	public event EventHandler onEntityLevelUp;
+	public event EventHandler OnEntityLevelUp;
 
 	//Variables to assign via the unity inspector.
 	[SerializeField] private int m_maxLevel;
@@ -63,7 +63,7 @@ public class EntityLevelTracker : MonoBehaviour {
 	private void CheckIfShouldEntityLevelUp() {
 		if(m_levelTrackingData.m_currentXP >= m_levelTrackingData.m_xpRequiredToLevelUp) {
 			UpdateLevelTrackingDataAfterLevelUp();
-			onEntityLevelUp?.Invoke(this, EventArgs.Empty);
+			OnEntityLevelUp?.Invoke(this, EventArgs.Empty);
 			Debug.Log(m_levelTrackingData.ToString());
 		}
 	}

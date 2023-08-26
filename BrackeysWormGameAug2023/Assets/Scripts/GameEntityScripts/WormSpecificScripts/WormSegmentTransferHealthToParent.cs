@@ -24,8 +24,16 @@ public class WormSegmentTransferHealthToParent : MonoBehaviour, IDamageable {
 		m_damageable.HealEntity(a_amountToHeal);
 	}
 
+	public void HealToMax() {
+		m_damageable.HealToMax();
+	}
+
 	public void IncreaseMaxHealth(float a_amountToIncreaseBy) {
 		m_damageable.IncreaseMaxHealth(a_amountToIncreaseBy);
+	}
+
+	public void SetParentDamageScript(IDamageable a_parentDamageScript) {
+		m_damageable = a_parentDamageScript;
 	}
 
 	//Unity Functions.

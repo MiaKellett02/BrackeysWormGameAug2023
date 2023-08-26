@@ -4872,6 +4872,7 @@ GameObject:
   - component: {fileID: 772044449522211725}
   - component: {fileID: 1026551864915875058}
   - component: {fileID: 2179149923019693083}
+  - component: {fileID: 3698962810940207930}
   - component: {fileID: 64809872498278180}
   - component: {fileID: 6346078180259461128}
   - component: {fileID: 6770622715453495093}
@@ -4976,6 +4977,21 @@ MonoBehaviour:
   m_minDistanceFromParent: 0.71
   m_movementSpeed: 3.5
   m_rotationSensitivity: 93.7
+--- !u!114 &3698962810940207930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3901405419929454465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbd759021a69e846a46cc3d75dd3392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxSegmentsToSpawn: 6
+  m_wormSegmentPrefab: {fileID: 8304910635147416148, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_wormLevelTracker: {fileID: 6346078180259461128}
 --- !u!114 &64809872498278180
 MonoBehaviour:
   m_ObjectHideFlags: 0
