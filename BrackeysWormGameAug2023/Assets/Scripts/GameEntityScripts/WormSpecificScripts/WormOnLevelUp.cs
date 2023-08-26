@@ -25,5 +25,8 @@ public class WormOnLevelUp : MonoBehaviour {
 	//Private functions.
 	private void WormLevelTracker_OnEntityLevelUp(object sender, System.EventArgs e) {
 		OnWormLevelUp?.Invoke();
+
+		//Send a notification to the player.
+		NotificationsManager.Instance.SendNotification("LEVEL UP!");
 	}
 }

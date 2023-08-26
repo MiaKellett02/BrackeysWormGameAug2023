@@ -41,6 +41,13 @@ public class EnemySpawnerManager : MonoBehaviour {
 		newEnemy.position = GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(a_positionToSpawnAt);
 	}
 
+	public float GetDifficultyMultiplier() {
+		//Get the difficulty depth multiplier.
+		float playerDepthNormalized = Mathf.Clamp(-PlayerLocationTracker.Instance.GetPlayerPosition().y, 0.0f, WormGameManager.MAX_DEPTH_UNDERGROUND) / WormGameManager.MAX_DEPTH_UNDERGROUND;
+		float enemyDifficultyMultiplier = m_enemyDifficultyCurve.Evaluate(playerDepthNormalized);
+		return enemyDifficultyMultiplier;
+	}
+
 	//Unity Functions.
 	private void Awake() {
 		Instance = this;

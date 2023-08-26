@@ -139,7 +139,8 @@ public class WormGameManager : MonoBehaviour {
 	private void HandleEnemySpawning() {
 		if (m_spawnEnemiesTimer <= 0.0f) {
 			//Reset timer.
-			m_spawnEnemiesTimer = m_timeBetweenSpawningEnemies;
+			m_spawnEnemiesTimer = m_timeBetweenSpawningEnemies - (m_timeBetweenSpawningEnemies * EnemySpawnerManager.Instance.GetDifficultyMultiplier());
+			m_spawnEnemiesTimer = Mathf.Clamp(m_spawnEnemiesTimer, m_timeBetweenSpawningEnemies / 2, m_timeBetweenSpawningEnemies);
 
 			//Spawn the food at a random position around the player..
 			Vector3 positionToSpawnEnemy = GetRandomPositionAroundThePlayerUnitCircle() * m_enemiesMinSpawningRadius;
