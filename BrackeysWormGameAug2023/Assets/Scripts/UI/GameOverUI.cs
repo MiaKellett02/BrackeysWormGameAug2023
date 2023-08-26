@@ -7,10 +7,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour {
+	//Variables to assign via the unity inspector.
+	[SerializeField] private Button m_returnToMainMenuButton;
+
 	//Unity Functions.
 	private void Start() {
+		//Subscribe to the button event.
+		m_returnToMainMenuButton.onClick.AddListener(() => {
+			Loader.Load(Loader.Scene.MainMenuScene);
+		});
+
+		//Subscribe to the game over event.
 		WormGameManager.Instance.OnGameOver += WormGameManager_OnGameOver;
 		Hide();
 	}

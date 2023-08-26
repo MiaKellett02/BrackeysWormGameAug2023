@@ -10,7 +10,7 @@ public class LoaderCallback : MonoBehaviour
 
 	// Update is called once per frame
 	private IEnumerator Start() {
-		float randomWaitTime = Random.Range(0.5f, 3.0f);
+		float randomWaitTime = Random.Range(0.25f, 0.5f);
 		yield return new WaitForSeconds(randomWaitTime);
 		canLoadNextScene = true;
 	}

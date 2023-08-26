@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class MainMenuUI : MonoBehaviour {
 	[SerializeField] private Button m_playButton;
 	[SerializeField] private Button m_optionsButton;
 	[SerializeField] private Button m_quitButton;
+	[SerializeField] private TextMeshProUGUI m_versionNumberText;
 
 	//Unity Functions.
 	private void Awake() {
@@ -30,5 +32,8 @@ public class MainMenuUI : MonoBehaviour {
 			Debug.Log("Quit Game Button Pressed On Main Menu");
 			Application.Quit();
 		});
+
+		//Get the correct version number.
+		m_versionNumberText.text = "v" + Application.version;
 	}
 }

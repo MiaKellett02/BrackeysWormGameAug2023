@@ -145,8 +145,9 @@ public class SpawnWormSegmentsBasedOnHealth : MonoBehaviour {
 		//Update the max number of segments that can be spawned.
 		m_maxSegmentsToSpawn += 1;
 
-		//Heal the entity to max.
-		m_wormHealthScript.HealToMax();
+		//Increase the worm scale.
+		Vector3 currentScale = this.transform.parent.localScale;
+		this.transform.parent.localScale = currentScale * 1.1f;
 
 		//Update the worm segments.
 		UpdateWormSegments();
