@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityHealth : MonoBehaviour {
+public class EntityHealth : MonoBehaviour, IDamageable {
 	//Events.
 	public event EventHandler OnEntityDamaged;
 	public event EventHandler OnEntityHealed;
@@ -19,7 +19,7 @@ public class EntityHealth : MonoBehaviour {
 	//Variables to assign via the unity inspector.
 	[SerializeField] private MonoBehaviour m_entityDeathHandlerScript;
 
-	[field:SerializeField]
+	[field: SerializeField]
 	public float m_maxHealth {
 		get; private set;
 	} = 10.0f;
@@ -82,7 +82,9 @@ public class EntityHealth : MonoBehaviour {
 		OnEntityDeath?.Invoke(this, EventArgs.Empty);
 
 		//Destroy the entity object in the way specified by the death handler.
-		m_entityDestructionHandler.HandleObjectDestruction();
+		if (m_entityDestructionHandler != null) {
+			m_entityDestructionHandler.HandleObjectDestruction();
+		}
 	}
 
 	private void SetupDestructionHandler() {

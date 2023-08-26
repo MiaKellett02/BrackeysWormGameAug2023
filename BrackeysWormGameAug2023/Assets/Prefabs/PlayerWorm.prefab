@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 1547753330453166876}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -193,6 +197,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8304910635147416148, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
   m_PrefabInstance: {fileID: 511112581120611308}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9173540563305976761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_PrefabInstance: {fileID: 511112581120611308}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2569c05b63f33446adeb22e87255eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1446990696567072866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,6 +264,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 2473230862896196537}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -330,6 +349,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 3348552604863170866}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -344,6 +367,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a80ee3a392178ea4a8b78ab43c5072f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7144886788483813036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_PrefabInstance: {fileID: 1981192457255489273}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2569c05b63f33446adeb22e87255eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7511551401612729517 stripped
@@ -411,6 +445,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 1104662906905974607}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -421,6 +459,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8304910635147416148, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
   m_PrefabInstance: {fileID: 6206332456187201895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3348552604863170866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_PrefabInstance: {fileID: 6206332456187201895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2569c05b63f33446adeb22e87255eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4858400795493679131 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1535115821656066428, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
@@ -492,11 +541,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 7144886788483813036}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+--- !u!114 &2473230862896196537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_PrefabInstance: {fileID: 6488436898923932652}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2569c05b63f33446adeb22e87255eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2975602562200680888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8304910635147416148, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
@@ -669,6 +733,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+      propertyPath: m_wormSegmentParentDamageableScript
+      value: 
+      objectReference: {fileID: 9173540563305976761}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -679,6 +747,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8304910635147416148, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
   m_PrefabInstance: {fileID: 8578703808438097690}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104662906905974607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671998458264027221, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}
+  m_PrefabInstance: {fileID: 8578703808438097690}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2569c05b63f33446adeb22e87255eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7079797280363650662 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1535115821656066428, guid: afdafaf43e4983c4295d215d1df0d4dc, type: 3}

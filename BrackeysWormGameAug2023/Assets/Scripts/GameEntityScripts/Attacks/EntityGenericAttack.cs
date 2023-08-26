@@ -18,13 +18,13 @@ public class EntityGenericAttack : MonoBehaviour, ICanAttack {
 	[SerializeField] private float m_attackCooldownTime = 1.0f;
 
 	//Private Variables.
-	private EntityHealth m_entityToAttack = null;
+	private IDamageable m_entityDamageableScript = null;
 	private bool m_canAttackAgain = true;
 
 	//Public Functions.
 	public void Attack() {
-		if (m_entityToAttack != null && m_canAttackAgain) {
-			m_entityToAttack.DamageEntity(m_attackDamage);
+		if (m_entityDamageableScript != null && m_canAttackAgain) {
+			m_entityDamageableScript.DamageEntity(m_attackDamage);
 		}
 	}
 
@@ -38,9 +38,10 @@ public class EntityGenericAttack : MonoBehaviour, ICanAttack {
 			}
 
 			//Check if it has a health script.
-			if (collision.TryGetComponent(out EntityHealth entityHealth)) {
+			if (collision.TryGetComponent(out IDamageable isDamageable)) {
 				//Attack it.
-				m_entityToAttack = entityHealth;
+				m_entityDamageableScript = isDamageable;
+				Attack();
 				StartCoroutine(AttackCooldown());
 			}
 		}
@@ -57,19 +58,15 @@ public class EntityGenericAttack : MonoBehaviour, ICanAttack {
 			//Check if it has a health script.
 			if (collision.TryGetComponent(out EntityHealth entityHealth)) {
 				//Stop the script from attacking it.
-				m_entityToAttack = null;
-				StopAllCoroutines();
+				m_entityDamageableScript = null;
 			}
 		}
 	}
 
 	//Private Functions.
 	private IEnumerator AttackCooldown() {
-		while (m_entityToAttack != null) {
-			Attack();
-			m_canAttackAgain = false;
-			yield return new WaitForSeconds(m_attackCooldownTime);
-			m_canAttackAgain = true;
-		}
+		m_canAttackAgain = false;
+		yield return new WaitForSeconds(m_attackCooldownTime);
+		m_canAttackAgain = true;
 	}
 }

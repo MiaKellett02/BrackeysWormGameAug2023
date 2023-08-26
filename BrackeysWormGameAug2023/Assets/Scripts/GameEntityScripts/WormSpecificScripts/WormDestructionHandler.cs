@@ -25,6 +25,10 @@ public class WormDestructionHandler : MonoBehaviour, IDestructionHandler {
 
 		//Make the segments destroy themselves.
 		foreach (WormSegmentBase segment in m_wormSegments) {
+			if (segment == null) {
+				continue;
+			}
+
 			if (segment.TryGetComponent(out WormSegmentDestructionHandler destructionHandler)) {
 				destructionHandler.HandleObjectDestruction();
 			} else {
@@ -33,10 +37,14 @@ public class WormDestructionHandler : MonoBehaviour, IDestructionHandler {
 		}
 
 		//Destroy the head.
-		m_wormHeadMovementScript.GetComponent<WormSegmentDestructionHandler>().HandleObjectDestruction();
+		if (m_wormHeadMovementScript != null){
+			m_wormHeadMovementScript.GetComponent<WormSegmentDestructionHandler>().HandleObjectDestruction();
+		}
 
 		//Destroy the worm as a whole.
-		Destroy(this.gameObject.transform.parent.gameObject);
+		if (this != null && this.gameObject != null && this.gameObject.transform.parent != null) {
+			Destroy(this.gameObject.transform.parent.gameObject);
+		}
 	}
 
 	//Unity Functions.
