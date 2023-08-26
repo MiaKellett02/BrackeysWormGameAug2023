@@ -22,7 +22,9 @@ public class AntMovementScript : MonoBehaviour, ICanMove {
 	}
 
 	public void MoveForward() {
-		transform.position += transform.up * m_movementSpeed * Time.deltaTime;
+		Vector3 pos = transform.position;
+		pos += transform.up * m_movementSpeed * Time.deltaTime;
+		transform.position = GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(pos);
 	}
 
 	//Private Functions.

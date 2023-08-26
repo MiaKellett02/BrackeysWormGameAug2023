@@ -38,7 +38,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
 		//Spawn the enemy and put it in the correct position..
 		Transform newEnemy = Instantiate(prefabToUse, this.transform);
-		newEnemy.position = a_positionToSpawnAt;
+		newEnemy.position = GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(a_positionToSpawnAt);
 	}
 
 	//Unity Functions.

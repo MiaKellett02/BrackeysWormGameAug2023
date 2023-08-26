@@ -18,7 +18,7 @@ public class GameFoodSpawner : MonoBehaviour {
 	//Public Functions.
 	public Transform SpawnFood(Vector3 a_position, Vector3 a_scale, float a_dropRadius) {
 		Transform newFood = Instantiate(m_foodPrefab, this.transform);
-		newFood.position = a_position + (GetRandomDirection() * a_dropRadius);
+		newFood.position = GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(a_position + (GetRandomDirection() * a_dropRadius));
 		newFood.localScale = a_scale;
 
 		return newFood;

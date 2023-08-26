@@ -41,7 +41,7 @@ public class WormSegmentBase : MonoBehaviour {
 		float distanceFromParentAtNewPosSqr = (a_parentSegment.transform.position - newPosition).sqrMagnitude;
 		bool isValidPosition = distanceFromParentAtNewPosSqr > (s_minDistanceFromParent * s_minDistanceFromParent);
 		if (isValidPosition) {
-			transform.position = newPosition;
+			transform.position = GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(newPosition);
 		}
 
 		//transform.up = Vector3.Slerp(transform.up, a_parentSegment.transform.up, s_movementOverTime);

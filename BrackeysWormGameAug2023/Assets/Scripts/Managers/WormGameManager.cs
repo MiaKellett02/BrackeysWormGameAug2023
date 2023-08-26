@@ -129,7 +129,7 @@ public class WormGameManager : MonoBehaviour {
 			float minFoodDistance = 1.0f;
 			float foodSpawningRadius = UnityEngine.Random.Range(minFoodDistance, m_foodMaxSpawningRadius);
 			Vector3 positionToSpawnFood = GetRandomPositionAroundThePlayerUnitCircle() * foodSpawningRadius;
-			GameFoodSpawner.Instance.SpawnFood(positionToSpawnFood, Vector3.one, 1.0f);
+			GameFoodSpawner.Instance.SpawnFood(GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(positionToSpawnFood), Vector3.one, 1.0f);
 		} else {
 			//Countdown the timer.
 			m_spawnFoodTimer -= Time.deltaTime;
@@ -143,7 +143,7 @@ public class WormGameManager : MonoBehaviour {
 
 			//Spawn the food at a random position around the player..
 			Vector3 positionToSpawnEnemy = GetRandomPositionAroundThePlayerUnitCircle() * m_enemiesMinSpawningRadius;
-			EnemySpawnerManager.Instance.SpawnEnemy(positionToSpawnEnemy);
+			EnemySpawnerManager.Instance.SpawnEnemy(GameBoundaryManager.Instance.EnsurePositionIsInsideTheBounds(positionToSpawnEnemy));
 		} else {
 			//Countdown the timer.
 			m_spawnEnemiesTimer -= Time.deltaTime;
