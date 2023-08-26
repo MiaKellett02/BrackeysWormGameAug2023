@@ -16,5 +16,5 @@ using UnityEngine;
 public enum Factions {
 	Player,
 	Enemy,
-	FreeForAll, 
+	//FreeForAll, 
 }

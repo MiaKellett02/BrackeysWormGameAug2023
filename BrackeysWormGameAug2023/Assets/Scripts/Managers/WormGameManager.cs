@@ -35,9 +35,11 @@ public class WormGameManager : MonoBehaviour {
 	[Header("Food Spawning Variables")]
 	[SerializeField] private float m_foodToSpawnPerSecond = 0.1f;
 	[SerializeField] private float m_foodMaxSpawningRadius = 30.0f;
+	[SerializeField] private bool m_showFoodRadiusGizmo = false;
 	[Header("Enemy Spawning Variables")]
 	[SerializeField] private float m_baseEnemiesToSpawnPerSecond = 0.1f;
 	[SerializeField] private float m_enemiesMinSpawningRadius = 10.0f;
+	[SerializeField] private bool m_showEnemyRadiusGizmo = false;
 
 	//Private variables.
 	//General Game Variables.
@@ -72,6 +74,24 @@ public class WormGameManager : MonoBehaviour {
 
 	private void Update() {
 		HandleGameStates();
+	}
+
+	private void OnDrawGizmos() {
+		Vector3 targetPos = Vector3.zero;
+
+		if (Application.isPlaying && PlayerLocationTracker.Instance != null) {
+			targetPos = PlayerLocationTracker.Instance.GetPlayerPosition();
+		}
+
+		if (m_showFoodRadiusGizmo) {
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere(targetPos, m_foodMaxSpawningRadius);
+		}
+
+		if (m_showEnemyRadiusGizmo) {
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(targetPos, m_enemiesMinSpawningRadius);
+		}
 	}
 
 	//Private Functions.
